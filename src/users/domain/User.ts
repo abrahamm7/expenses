@@ -1,41 +1,16 @@
-import { Sequelize, DataTypes } from "sequelize";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
-const sequelize = new Sequelize("EXPENSES", {
-  host: "LAPTOP-3Q354RTQ\\SQLEXPRESS",
-  dialect: "mssql",
-});
+@Entity()
+export class User {
+  @PrimaryGeneratedColumn()
+  userId: number | undefined;
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log("Connection has been established successfully.");
-  })
-  .catch((error) => {
-    console.error("Unable to connect to the database: ", error);
-  });
+  @Column({ type: "varchar" })
+  name: string | undefined;
 
-const User = sequelize.define("User", {
-  userId: {
-    type: DataTypes.NUMBER,
-    allowNull: false,
-  },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  email: {
-    type: DataTypes.STRING,
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-  },
-});
+  @Column({ type: "varchar" })
+  email: string | undefined;
 
-sequelize
-  .sync()
-  .then(() => {
-    console.log("User table created successfully!");
-  })
-  .catch((error) => {
-    console.error("Unable to create table : ", error);
-  });
+  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  createdAt: Date | undefined;
+}
