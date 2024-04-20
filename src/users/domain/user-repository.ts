@@ -1,5 +1,6 @@
-import { User } from "./User";
+import { Users } from "./User";
 
 export interface UserRepository {
-  getById(id: Number): Promise<User | null>;
+  getUsers(): Promise<Users[] | null>;
+  getById(id: Number): Promise<Users | null>;
 }

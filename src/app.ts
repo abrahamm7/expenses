@@ -7,11 +7,10 @@ const app = express();
 
 const startServer = async () => {
   await initializeDatabase();
-  // ... set up your Express or other HTTP server here
 };
 
 app.use(express.json());
-app.use("/users", userRouter);
+app.use("/", userRouter);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 

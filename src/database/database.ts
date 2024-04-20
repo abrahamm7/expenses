@@ -1,8 +1,8 @@
 import { DataSource } from "typeorm";
 import { Expense } from "../expenses/domain/expense"; // Import your entities here
 import dotenv from "dotenv";
+import { Users } from "../users/domain/User";
 dotenv.config({ path: "../config.env" });
-console.log(process.env.POSTGRES_DB_HOST);
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -12,7 +12,7 @@ export const AppDataSource = new DataSource({
   password: process.env.POSTGRES_DB_PASSWORD,
   database: process.env.POSTGRES_DB_DATABASE,
   synchronize: true,
-  entities: [Expense],
+  entities: [Expense, Users],
 });
 
 // Initialize the connection
