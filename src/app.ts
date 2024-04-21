@@ -10,8 +10,7 @@ const startServer = async () => {
 };
 
 app.use(express.json());
-app.use("/", userRouter);
-app.use(express.urlencoded({ extended: true }));
+app.use("/users", userRouter);
 app.use(express.urlencoded({ extended: true }));
 
 app.listen(3000, () => {

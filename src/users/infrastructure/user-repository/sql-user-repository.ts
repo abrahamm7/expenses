@@ -8,10 +8,12 @@ export class SqlUserRepository implements UserRepository {
   constructor(dataSource: DataSource) {
     this.dataSource = dataSource;
   }
+  async createUser(user: Users): Promise<Users> {
+    return await this.dataSource.getRepository(Users).save(user);
+  }
 
   async getUsers(): Promise<Users[] | null> {
-    const users = this.dataSource.getRepository(Users).find();
-    return await users;
+    return await this.dataSource.getRepository(Users).find();
   }
 
   async getById(id: Number): Promise<Users | null> {
