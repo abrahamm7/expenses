@@ -2,7 +2,7 @@ import { DataSource } from "typeorm";
 import { Expense } from "../expenses/domain/expense"; // Import your entities here
 import dotenv from "dotenv";
 import { Users } from "../users/domain/User";
-dotenv.config({ path: "../config.env" });
+dotenv.config({ path: "../../.env" });
 
 export const AppDataSource = new DataSource({
   type: "postgres",
