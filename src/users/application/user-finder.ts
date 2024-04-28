@@ -4,6 +4,6 @@ export class UserFind {
   constructor(private readonly userRepository: UserRepository) {}
 
   async execute() {
-    await this.userRepository.getUsers();
+    return await this.userRepository.getUsers();
   }
 }

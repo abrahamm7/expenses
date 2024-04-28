@@ -16,7 +16,9 @@ export class SqlUserRepository implements UserRepository {
     return await this.dataSource.getRepository(Users).find();
   }
 
-  async getById(id: Number): Promise<Users | null> {
-    return null;
+  async getById(userId: Number): Promise<Users[] | null> {
+    return await this.dataSource
+      .getRepository(Users)
+      .find({ where: { userId: userId } });
   }
 }

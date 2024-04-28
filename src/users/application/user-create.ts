@@ -5,6 +5,6 @@ export class UserCreate {
   constructor(private readonly userRepository: UserRepository) {}
 
   async execute(user: Users) {
-    await this.userRepository.createUser(user);
+    return await this.userRepository.createUser(user);
   }
 }
