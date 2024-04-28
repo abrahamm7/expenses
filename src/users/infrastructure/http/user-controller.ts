@@ -2,7 +2,7 @@ import { UserCreate } from "../../application/user-create";
 import { UserFind } from "../../application/user-finder";
 import { UserFindById } from "../../application/user-id-finder";
 import { Request, Response } from "express";
-import { Users } from "../../domain/User";
+import { Users } from "../../domain/user";
 
 export class UserController {
   constructor(

@@ -1,4 +1,4 @@
-import { Users } from "../../domain/User";
+import { Users } from "../../domain/user";
 import { UserRepository } from "../../domain/user-repository";
 import { DataSource } from "typeorm";
 
